@@ -21,7 +21,6 @@
 
   // Paste the Forminit form ID here once Natasha's Forminit form exists (Public mode).
   var FORM_ID = '';
-  var TO = 'natasha@effectivelaw.co.uk';
 
   var ok = document.getElementById('form-ok');
   var err = document.getElementById('form-err');
@@ -32,20 +31,6 @@
     box.textContent = text;
     box.hidden = false;
     box.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
-  }
-
-  function val(name) { var f = form.elements[name]; return f ? f.value.trim() : ''; }
-
-  function mailtoFallback() {
-    var need = form.elements['fi-select-need'];
-    var needText = need && need.selectedIndex > -1 ? need.options[need.selectedIndex].text : '';
-    var body = 'Name: ' + val('fi-sender-firstName') + ' ' + val('fi-sender-lastName') + '\n' +
-      'Email: ' + val('fi-sender-email') + '\n' +
-      'Business: ' + val('fi-sender-company') + '\n' +
-      'What I need: ' + needText + '\n\n' + val('fi-text-message');
-    window.location.href = 'mailto:' + TO + '?subject=' + encodeURIComponent('Website enquiry from ' + val('fi-sender-firstName')) +
-      '&body=' + encodeURIComponent(body);
-    show(ok, 'Your email app should open with your message ready to send. If it does not, please email ' + TO + '.');
   }
 
   form.addEventListener('submit', async function (e) {
@@ -60,7 +45,8 @@
     }
     if (!form.checkValidity()) { form.reportValidity(); return; }
 
-    if (!FORM_ID || typeof Forminit === 'undefined') { mailtoFallback(); return; }
+    if (!FORM_ID) { show(err, 'This form is not yet connected to a form service. Please come back later.'); return; }
+    if (typeof Forminit === 'undefined') { show(err, 'Sorry, the form could not load. Please try again in a moment.'); return; }
 
     var data = new FormData(form);
     data.delete('_gotcha');
@@ -71,13 +57,13 @@
       var forminit = new Forminit();
       var res = await forminit.submit(FORM_ID, data);
       if (res.error) {
-        show(err, 'Sorry, that did not send. Please email ' + TO + ' instead.');
+        show(err, 'Sorry, that did not send. Please try again later.');
       } else {
         show(ok, 'Thank you. Your message is with Natasha, who will be in touch.');
         form.reset();
       }
     } catch (x) {
-      show(err, 'Sorry, that did not send. Please email ' + TO + ' instead.');
+      show(err, 'Sorry, that did not send. Please try again later.');
     }
     btn.disabled = false;
     btn.textContent = label;

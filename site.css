@@ -209,3 +209,6 @@ footer.site .tag{margin-top:14px;max-width:300px;font-size:16px}
 .g22{grid-template-columns:repeat(2,1fr)}
 @media (max-width:760px){.g22{grid-template-columns:1fr}}
 .nw{white-space:nowrap}
+.ico{width:48px;height:48px;border-radius:50%;background:var(--mist);color:var(--purple);display:grid;place-items:center;margin-bottom:14px}
+.sec.mist .ico{background:var(--mist)}
+.portrait img{object-position:50% 20%}

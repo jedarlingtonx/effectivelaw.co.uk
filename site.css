@@ -290,3 +290,6 @@ nav.main .menu{display:contents}
 }
 @media (max-width:370px){.logo .word{font-size:19px}}
 .socials{display:flex;gap:10px;margin-left:auto;align-self:flex-end}
+.credit-row{display:flex;justify-content:center;margin-top:22px;font-size:14px;color:#D9C7DF;text-align:center}
+.credit-row .credit{justify-content:center;margin:0}
+@media (max-width:760px){.credit-row .credit{flex-direction:column;gap:6px;text-align:center}}

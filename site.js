@@ -15,6 +15,19 @@
     }
   }
 
+  // Burger menu (phones).
+  var nav = document.querySelector('nav.main');
+  var tog = nav && nav.querySelector('.nav-toggle');
+  if (tog) {
+    tog.addEventListener('click', function () {
+      var open = nav.classList.toggle('open');
+      tog.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && nav.classList.contains('open')) { nav.classList.remove('open'); tog.setAttribute('aria-expanded', 'false'); tog.focus(); }
+    });
+  }
+
   // Enquiry form (contact page only).
   var form = document.getElementById('enquiry');
   if (!form) return;

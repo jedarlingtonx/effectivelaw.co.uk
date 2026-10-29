@@ -59,10 +59,6 @@ nav.main .links a:hover,nav.main .links a[aria-current="page"]{border-bottom-col
 .btn.ghost:hover{background:var(--mist)}
 nav.main .btn{padding:11px 22px;font-size:16px}
 @media (max-width:760px){
-  nav.main{align-items:flex-start}
-  nav.main .links{justify-content:flex-end;gap:4px 16px}
-  nav.main .links a{font-size:15px}
-  nav.main .cta{flex-basis:100%;text-align:right}
   .logo .word{font-size:23px}
   .logo .mark{width:30px;height:30px}
 }
@@ -253,3 +249,43 @@ table.ck code{font-size:15px;background:var(--mist);padding:1px 6px;border-radiu
   blockquote p{font-size:17px;line-height:1.55}
 }
 @media (max-width:760px){footer.site li a{padding:10px 0}footer.site li{margin:0}}
+
+/* burger menu (phones) */
+.nav-toggle{display:none}
+nav.main .menu{display:contents}
+@media (max-width:760px){
+  .nav-toggle{display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;margin:-6px -8px -6px 0;background:none;border:0;border-radius:12px;cursor:pointer;color:var(--purple)}
+  .nav-toggle:focus-visible{outline:3px solid var(--orange);outline-offset:2px}
+  .nav-toggle .bars,.nav-toggle .bars::before,.nav-toggle .bars::after{display:block;width:24px;height:3px;border-radius:2px;background:currentColor;transition:transform .2s,background .2s}
+  .nav-toggle .bars{position:relative}
+  .nav-toggle .bars::before,.nav-toggle .bars::after{content:"";position:absolute;left:0}
+  .nav-toggle .bars::before{top:-8px}
+  .nav-toggle .bars::after{top:8px}
+  .nav-toggle[aria-expanded="true"] .bars{background:transparent}
+  .nav-toggle[aria-expanded="true"] .bars::before{top:0;transform:rotate(45deg)}
+  .nav-toggle[aria-expanded="true"] .bars::after{top:0;transform:rotate(-45deg)}
+  nav.main .menu{display:flex;flex-direction:column;align-items:stretch;flex-basis:100%;gap:4px;padding:6px 0 10px;border-top:1px solid var(--line)}
+  .js nav.main .menu{display:none}
+  .js nav.main.open .menu{display:flex}
+  nav.main .links{flex-direction:column;align-items:stretch;gap:0}
+  nav.main .links a{display:block;font-size:18px;padding:14px 4px;border-bottom:1px solid var(--line)}
+  nav.main .links a[aria-current="page"]{border-bottom-color:var(--line);color:var(--purple)}
+  nav.main .cta{margin-top:12px}
+  nav.main .cta .btn{display:block;text-align:center}
+  /* footer links */
+  footer.site li{margin:0}
+  footer.site li a{display:inline-block;padding:5px 0;line-height:1.4}
+  /* service page side cards: full content width */
+  .cols aside{flex:1 1 100%}
+  /* centre Natasha's photo wherever it appears */
+  .portrait-wrap,.about>div:first-child,.cols aside .portrait{margin-left:auto;margin-right:auto}
+  .about>div:first-child{width:100%}
+  .portrait,.portrait.sm{margin-left:auto;margin-right:auto}
+}
+@media (max-width:760px){
+  nav.main{gap:0 12px;flex-wrap:wrap;align-items:center}
+  nav.main .logo{flex:1 1 0;min-width:0}
+  .logo .word{font-size:21px;white-space:nowrap}
+  .logo .mark{width:28px;height:28px;flex:none}
+}
+@media (max-width:370px){.logo .word{font-size:19px}}

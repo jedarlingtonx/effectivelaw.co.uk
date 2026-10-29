@@ -289,3 +289,4 @@ nav.main .menu{display:contents}
   .logo .mark{width:28px;height:28px;flex:none}
 }
 @media (max-width:370px){.logo .word{font-size:19px}}
+.socials{display:flex;gap:10px;margin-left:auto;align-self:flex-end}

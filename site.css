@@ -213,3 +213,8 @@ footer.site .tag{margin-top:14px;max-width:300px;font-size:16px}
 .sec.mist .ico{background:var(--mist)}
 .portrait img{object-position:50% 20%}
 .intro.wide{max-width:none}
+.card:not(.big){display:flex;flex-direction:column}
+.card:not(.big) .more{margin-top:auto;padding-top:14px;align-self:flex-start}
+.prose.narrow{max-width:none}
+.card .ico{background:#fff}
+.sec.mist .card .ico{background:var(--mist)}

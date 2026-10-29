@@ -174,7 +174,7 @@ form.enq textarea{min-height:150px;resize:vertical}
 /* footer */
 footer.site{background:var(--ink);color:#EBDDF0;padding:56px max(24px,calc((100% - 1120px)/2)) 28px}
 footer.site .fgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:36px}
-footer.site h4{color:#fff;font-size:17px;margin-bottom:12px}
+footer.site h4,footer.site .fh{color:#fff;font:700 17px "Source Sans 3",system-ui,sans-serif;margin:0 0 12px}
 footer.site ul{list-style:none;margin:0;padding:0}
 footer.site li{margin:7px 0}
 footer.site a{color:#EBDDF0}

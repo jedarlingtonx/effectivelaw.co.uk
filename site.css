@@ -231,3 +231,25 @@ table.ck th,table.ck td{text-align:left;vertical-align:top;padding:10px 12px;bor
 table.ck th{background:var(--mist);color:var(--purple)}
 table.ck code{font-size:15px;background:var(--mist);padding:1px 6px;border-radius:6px}
 @media (max-width:640px){table.ck thead{display:none}table.ck,table.ck tbody,table.ck tr,table.ck td{display:block;width:100%}table.ck tr{border-bottom:1px solid var(--line);padding:8px 0}table.ck td{border:0;padding:4px 0}}
+/* mobile polish */
+@media (max-width:760px){
+  .hero h1{font-size:clamp(32px,9.4vw,44px)}
+  nav.main .links a{padding:10px 0}
+  .logo{padding:6px 0}
+  .crumbs a{display:inline-block;padding:10px 2px}
+  .crumbs{margin-bottom:8px}
+  footer.site li a{display:inline-block;padding:6px 0}
+  .btn{min-height:48px}
+}
+@media (max-width:760px){
+  .portrait-wrap{max-width:290px;margin:4px auto 0}
+  .portrait.sm{max-width:230px}
+  .card{padding:22px}
+  .card.big{padding:24px}
+  footer.site li a{padding:4px 0}
+}
+@media (max-width:760px){
+  blockquote{padding:22px;gap:14px}
+  blockquote p{font-size:17px;line-height:1.55}
+}
+@media (max-width:760px){footer.site li a{padding:10px 0}footer.site li{margin:0}}

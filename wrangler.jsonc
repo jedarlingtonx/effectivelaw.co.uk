@@ -1,0 +1,9 @@
+{
+  "name": "effectivelaw-co-uk",
+  "compatibility_date": "2026-10-30",
+  "assets": {
+    "directory": "./",
+    "not_found_handling": "404-page"
+  },
+  "previews": {}
+}

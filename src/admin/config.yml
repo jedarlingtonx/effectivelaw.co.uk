@@ -77,6 +77,8 @@ collections:
         label: Main picture (optional)
         widget: image
         required: false
+        choose_url: false
+        hint: Upload a picture from your computer. Landscape pictures work best.
       - name: image_alt
         label: Picture description
         widget: string

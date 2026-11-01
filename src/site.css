@@ -315,7 +315,7 @@ nav.main .menu{display:contents}
 .post-card h3 a:hover{text-decoration:underline}
 .post-meta{margin-top:14px}
 .prose h3{font-size:22px;margin:28px 0 10px}
-.prose .article-img{display:block;width:100%;border-radius:16px;margin:0 0 28px}
+.prose .article-img{display:block;width:100%;height:auto;max-height:min(420px,75vw);object-fit:cover;object-position:center 30%;border-radius:16px;margin:0 0 28px}
 .prose a{font-weight:600}
 .prose blockquote{display:block;height:auto;background:var(--mist);border-left:5px solid var(--orange);border-radius:8px;padding:16px 20px;margin:0 0 16px}
 .prose blockquote p{color:var(--ink);font-size:17px;margin:0}

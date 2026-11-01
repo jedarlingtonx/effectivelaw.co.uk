@@ -3,7 +3,7 @@ title: Test
 date: 2026-11-01
 author: James Darlington
 summary: This is a test short summary.
-image: https://picsum.photos/id/397/1920/1280.webp
+image: /images/uploads/img_1813.webp
 image_alt: This is a picture description.
 draft: false
 ---

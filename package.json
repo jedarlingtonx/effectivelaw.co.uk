@@ -1,0 +1,16 @@
+{
+  "name": "effectivelaw-co-uk",
+  "private": true,
+  "version": "1.0.0",
+  "description": "The Effective Law Group website",
+  "scripts": {
+    "build": "eleventy",
+    "start": "eleventy --serve"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.7"
+  },
+  "dependencies": {
+    "@sveltia/cms": "^0.256.1"
+  }
+}

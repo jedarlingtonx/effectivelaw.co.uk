@@ -1,0 +1,30 @@
+{% extends "base.njk" %}
+
+{% set articleUrl = site.url + page.url %}
+{% set ogType = "article" %}
+
+{% block jsonld %}
+<script type="application/ld+json">{{ { "@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [ { "@type": "ListItem", "position": 1, "name": "Home", "item": site.url + "/" }, { "@type": "ListItem", "position": 2, "name": "Effective Perspective", "item": site.url + "/effective-perspective/" }, { "@type": "ListItem", "position": 3, "name": title, "item": articleUrl } ] } | jsonld | safe }}</script>
+<script type="application/ld+json">{{ { "@context": "https://schema.org", "@type": "BlogPosting", "headline": title, "description": summary, "datePublished": page.date | isoDate, "author": { "@type": "Person", "name": author or "Natasha Jones" }, "publisher": { "@type": "Organization", "name": site.name, "logo": { "@type": "ImageObject", "url": site.url + "/favicon-192.png" } }, "mainEntityOfPage": articleUrl } | jsonld | safe }}</script>
+{% endblock %}
+
+{% block main %}
+<main id="main">
+<section class="page-hero">
+<div class="crumbs"><a href="/">Home</a> / <a href="/effective-perspective/">Insights</a> / {{ title }}</div>
+<h1>{{ title }}</h1>
+<p class="lead">{{ summary }}</p>
+<p class="meta post-meta"><time datetime="{{ page.date | isoDate }}">{{ page.date | readableDate }}</time>{% if author %} · By {{ author }}{% endif %}</p>
+</section>
+<div class="cols">
+<div class="main prose">
+{% if image %}<img class="article-img" src="{{ image }}" alt="{{ image_alt }}">{% endif %}
+{{ content | safe }}
+</div>
+<aside>
+<div class="aside-card"><h3>Looking for employment law support?</h3><p style="margin-bottom:16px">Natasha helps employers with employment law and HR, for a fixed fee.</p><a class="btn" href="/contact/">Talk to Natasha</a></div>
+<div class="aside-card"><h3>More from Effective Perspective</h3><ul><li><a href="/effective-perspective/">All articles</a></li></ul></div>
+</aside>
+</div>
+</main>
+{% endblock %}

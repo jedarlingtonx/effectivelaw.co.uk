@@ -1,0 +1,37 @@
+---
+layout: base.njk
+title: Effective Perspective
+description: Articles and updates on employment law and HR from The Effective Law Group.
+section: insights
+permalink: /effective-perspective/index.html
+---
+<main id="main">
+<section class="page-hero">
+<div class="crumbs"><a href="/">Home</a> / Insights</div>
+<h1>Effective Perspective</h1>
+<p class="lead">Articles and updates on employment law and HR, written for employers.</p>
+</section>
+<div class="cols">
+<div class="main">
+{% if collections.articles.length %}
+<div class="posts">
+{% for post in collections.articles %}
+<article class="card post-card">
+{% if post.data.image %}<img src="{{ post.data.image }}" alt="{{ post.data.image_alt }}" loading="lazy">{% endif %}
+<p class="meta"><time datetime="{{ post.date | isoDate }}">{{ post.date | readableDate }}</time></p>
+<h3><a href="{{ post.url }}">{{ post.data.title }}</a></h3>
+<p>{{ post.data.summary }}</p>
+<a class="more" href="{{ post.url }}">Read the article<span class="sr">: {{ post.data.title }}</span> →</a>
+</article>
+{% endfor %}
+</div>
+{% else %}
+<p class="intro">New articles are on their way. In the meantime, you can read about Natasha&rsquo;s book or see how we help employers.</p>
+{% endif %}
+</div>
+<aside>
+<div class="aside-card"><h3>Also by Natasha</h3><p style="margin-bottom:16px">Mandemic, a book about building 32 everyday habits.</p><a class="btn ghost" href="/effective-perspective/mandemic-book-by-natasha-jones/">About the book</a></div>
+<div class="aside-card"><h3>Looking for employment law support?</h3><p style="margin-bottom:16px">Natasha helps employers with employment law and HR, for a fixed fee.</p><a class="btn" href="/hr-employment/">See our services</a></div>
+</aside>
+</div>
+</main>

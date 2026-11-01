@@ -1,0 +1,97 @@
+# Sveltia CMS settings for The Effective Law Group.
+# Editors write articles here; each save is stored in GitHub, and Cloudflare
+# rebuilds the website automatically.
+
+backend:
+  name: github
+  repo: jedarlingtonx/effectivelaw.co.uk
+  # PROTOTYPE: changes are saved to `staging`, so nothing reaches the live site.
+  # To go live, change this to `main`.
+  branch: staging
+  # Sign-in helper (a small Cloudflare Worker). Fill in once it is deployed.
+  base_url: https://pn-cms-auth.jedarlington.workers.dev
+
+# Each save is committed straight to the branch above.
+publish_mode: simple
+
+logo_url: /favicon-192.png
+
+# Pictures are shrunk and saved as WebP so pages stay quick.
+media_folder: src/images/uploads
+public_folder: /images/uploads
+media_libraries:
+  default:
+    config:
+      max_file_size: 15000000
+      slugify_filename: true
+      transformations:
+        raster_image:
+          format: webp
+          quality: 85
+          width: 1600
+
+slug:
+  encoding: ascii
+  clean_accents: true
+
+collections:
+  - name: articles
+    label: Effective Perspective
+    label_singular: article
+    description: Articles and updates shown on the Effective Perspective page.
+    folder: src/effective-perspective/articles
+    extension: md
+    format: frontmatter
+    create: true
+    slug: "{{slug}}"
+    slug_length: 70
+    summary: "{{title}}"
+    preview_path: "effective-perspective/{{slug}}"
+    sortable_fields: [date, title]
+    fields:
+      - name: title
+        label: Headline
+        widget: string
+        required: true
+        maxlength: 100
+        hint: Keep it short and plain.
+      - name: date
+        label: Publish date
+        widget: datetime
+        required: true
+        time_format: false
+        format: YYYY-MM-DD
+        hint: The date shown on the article.
+      - name: author
+        label: Author
+        widget: string
+        default: Natasha Jones
+        required: true
+      - name: summary
+        label: Short summary
+        widget: text
+        required: true
+        maxlength: 160
+        hint: One or two sentences. Shown on the articles page and in Google results.
+      - name: image
+        label: Main picture (optional)
+        widget: image
+        required: false
+      - name: image_alt
+        label: Picture description
+        widget: string
+        required: false
+        hint: Describe the picture for people who cannot see it. Leave blank only if it is purely decoration.
+      - name: draft
+        label: Keep as a draft (do not publish yet)
+        widget: boolean
+        default: false
+        required: false
+        hint: Tick this to save the article without it appearing on the website.
+      - name: body
+        label: Article
+        widget: markdown
+        required: true
+        modes: [rich_text]
+        buttons: [bold, italic, link, heading-two, heading-three, bulleted-list, numbered-list, quote]
+        editor_components: []

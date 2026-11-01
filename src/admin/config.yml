@@ -20,6 +20,8 @@ logo_url: /favicon-192.png
 media_folder: src/images/uploads
 public_folder: /images/uploads
 media_libraries:
+  # Editors upload their own pictures; no stock photo libraries.
+  stock_assets: false
   default:
     config:
       max_file_size: 15000000

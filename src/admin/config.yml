@@ -5,9 +5,7 @@
 backend:
   name: github
   repo: jedarlingtonx/effectivelaw.co.uk
-  # PROTOTYPE: changes are saved to `staging`, so nothing reaches the live site.
-  # To go live, change this to `main`.
-  branch: staging
+  branch: main
   # Sign-in helper (a small Cloudflare Worker shared by Pixel North client sites).
   base_url: https://sveltia-cms-auth.jedarlington.workers.dev
 
